@@ -14,8 +14,10 @@ use AdroSoftware\UnbounceSdk\Http\Message\ResponseTransformerInterface;
 use AdroSoftware\UnbounceSdk\Response\FactoryInterface;
 use AdroSoftware\UnbounceSdk\Response\Status;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
+use Http\Message\Authentication\BasicAuth;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractClient
@@ -42,8 +44,12 @@ abstract class AbstractClient
                 'User-Agent' => $this->options->getUserAgent(),
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
-                'Authorization' => "Token {$this->token}",
             ])
+        );
+        $this->clientBuilder->addPlugin(
+            new AuthenticationPlugin(
+                new BasicAuth($this->token, '')
+            )
         );
     }
 
