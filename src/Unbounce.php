@@ -7,6 +7,7 @@ namespace AdroSoftware\UnbounceSdk;
 use AdroSoftware\UnbounceSdk\Contracts\InteractsWithEndpoints;
 use AdroSoftware\UnbounceSdk\Endpoint\{
     Accounts\Accounts,
+    Pages\Pages,
 };
 
 final class Unbounce extends AbstractClient implements InteractsWithEndpoints
@@ -21,5 +22,10 @@ final class Unbounce extends AbstractClient implements InteractsWithEndpoints
     public function accounts(): Accounts
     {
         return new Accounts($this);
+    }
+
+    public function pages(): Pages
+    {
+        return new Pages($this);
     }
 }
