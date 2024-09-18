@@ -27,13 +27,11 @@ final class Options
             'client_builder' => new ClientBuilder(),
             'uri_factory' => Psr17FactoryDiscovery::findUriFactory(),
             'response_factory' => new BypassFactory(),
-            'uri' => 'https://app.circle.so/api/',
-            'api_version' => 'v1',
+            'uri' => 'https://api.unbounce.com/',
             'user_agent' => 'adrosoftware/unbounce-api-php-sdk',
         ]);
 
         $resolver->setAllowedTypes('uri', 'string');
-        $resolver->setAllowedTypes('api_version', 'string');
         $resolver->setAllowedTypes('user_agent', 'string');
         $resolver->setAllowedTypes('client_builder', ClientBuilder::class);
         $resolver->setAllowedTypes('uri_factory', UriFactoryInterface::class);
@@ -58,12 +56,7 @@ final class Options
     public function getUri(): UriInterface
     {
         return $this->getUriFactory()
-            ->createUri($this->options['uri'] . "{$this->getApiVersion()}/");
-    }
-
-    public function getApiVersion(): string
-    {
-        return $this->options['api_version'];
+            ->createUri($this->options['uri']);
     }
 
     public function getUserAgent(): string
