@@ -21,17 +21,18 @@ final class Pages extends AbstractEndpoint implements EndpointInterface
         ?string $role = null
     ): mixed {
         $query = [
+            'secure' => 'true',
             'sort_order' => $sortOrder ?? 'asc',
-            'count' => $onlyCount ?? false,
+            'count' => $onlyCount ? 'true' : 'false',
             'from' => $from instanceof DateTime ?
                 $from->format('c') :
-                (is_string($from) ? (new DateTime($from))->format('c') : (new DateTime())->format('c')),
+                (is_string($from) ? (new DateTime($from))->format('c') : null),
             'to' => $to instanceof DateTime ?
                 $to->format('c') :
-                (is_string($to) ? (new DateTime($to))->format('c') : (new DateTime())->format('c')),
+                (is_string($to) ? (new DateTime($to))->format('c') : null),
             'offset' => $offset ?? 0,
             'limit' => $limit > 1000 ? 1000 : $limit ?? 50,
-            'with_stats' => $withStats ?? false,
+            'with_stats' => $withStats ? 'true' : 'false',
             'role' => $role ?? 'author',
         ];
 
