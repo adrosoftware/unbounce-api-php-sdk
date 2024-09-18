@@ -16,7 +16,7 @@ class AccountsTest extends TestCase
         ]);
 
         $response = $sdk->accounts()
-            ->all();
+            ->get();
 
         $this->assertIsArray($response);
         $this->assertArrayHasKey('accounts', $response);

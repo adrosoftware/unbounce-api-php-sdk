@@ -26,6 +26,6 @@ final class UnbounceTest extends TestCase
 
         $this->expectException(RequestUnauthorizedException::class);
 
-        $sdk->accounts()->all();
+        $sdk->accounts()->get();
     }
 }
