@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "documentation": "https://api.unbounce.com/doc/accounts?secure=true",
+        "location": "https://api.unbounce.com/accounts?secure=true",
+        "count": 1,
+        "related": {
+            "root": "https://api.unbounce.com/?secure=true"
+        }
+    },
+    "accounts": [
+        {
+            "metadata": {
+                "documentation": "https://api.unbounce.com/doc/accounts?secure=true",
+                "location": "https://api.unbounce.com/accounts/1?secure=true",
+                "related": {
+                    "pages": "https://api.unbounce.com/accounts/1/pages?secure=true",
+                    "subAccounts": "https://api.unbounce.com/accounts/1/sub_accounts?secure=true",
+                    "accounts": "https://api.unbounce.com/accounts?secure=true"
+                }
+            },
+            "id": 1,
+            "name": "Adro's Account",
+            "createdAt": "2024-09-16T19:58:09Z",
+            "state": "active",
+            "options": {
+                "apiKeysEnabled": true
+            }
+        }
+    ]
+}

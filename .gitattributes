@@ -1,0 +1,16 @@
+# Enforce Unix newlines
+* text=lf
+
+# Exclude unused files
+/.gitattributes     export-ignore
+/.githooks          export-ignore
+/.github            export-ignore
+/.gitignore         export-ignore
+/coverage           export-ignore
+/README.md          export-ignore
+/phpunit.xml        export-ignore
+/phpcs.xml          export-ignore
+/phpstan.neon       export-ignore
+/art                export-ignore
+/docs               export-ignore
+/tests              export-ignore
